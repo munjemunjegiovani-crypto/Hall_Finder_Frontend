@@ -185,7 +185,7 @@ function Campus() {
       <div className="mt-10 grid gap-5 sm:grid-cols-2">
         {tiles.map(([Art, ph, t, d]) => (
           <figure key={t} className="card overflow-hidden">
-            <div className="relative aspect-[4/3] w-full"><Art className="h-full w-full" /><Photo name={ph} alt={t} /></div>
+            <div className="relative aspect-[4/3] w-full"><Art className="h-full w-full" /><Photo name={ph} alt={t} position={ph === 'lecture' ? 'center 25%' : 'center'} /></div>
             <figcaption className="p-5">
               <div className="text-lg font-bold">{t}</div>
               <div className="mt-1 text-[15px] text-muted">{d}</div>
