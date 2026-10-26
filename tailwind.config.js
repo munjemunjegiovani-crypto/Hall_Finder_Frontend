@@ -1,0 +1,65 @@
+/** @type {import('tailwindcss').Config} */
+const v = (name) => `rgb(var(--${name}) / <alpha-value>)`;
+module.exports = {
+  darkMode: 'class',
+  content: ['./app/**/*.{js,jsx}', './components/**/*.{js,jsx}', './lib/**/*.{js,jsx}'],
+  theme: {
+    extend: {
+      colors: {
+        bg: v('bg'),
+        surface: v('surface'),
+        surface2: v('surface2'),
+        line: v('line'),
+        ink: v('ink'),
+        muted: v('muted'),
+        brand: v('brand'),
+        'brand-hi': v('brand-hi'),
+        'on-brand': v('on-brand'),
+        navy: v('navy'),
+        teal: v('teal'),
+        'teal-soft': v('teal-soft'),
+        'teal-ink': v('teal-ink'),
+        ok: v('ok'),
+        warn: v('warn'),
+        bad: v('bad'),
+      },
+      fontFamily: {
+        sans: ['"Inter Variable"', 'Inter', 'system-ui', 'sans-serif'],
+        display: ['"Hanken Grotesk Variable"', '"Hanken Grotesk"', 'system-ui', 'sans-serif'],
+        mono: ['"JetBrains Mono Variable"', '"JetBrains Mono"', 'ui-monospace', 'monospace'],
+      },
+      borderRadius: { xl: '1rem', '2xl': '1.5rem' },
+      boxShadow: {
+        float: '0 10px 25px -5px rgb(15 23 42 / 0.12), 0 8px 10px -6px rgb(15 23 42 / 0.06)',
+        modal: '0 25px 50px -12px rgb(15 23 42 / 0.28)',
+      },
+      keyframes: {
+        petal: {
+          '0%': { transform: 'translate3d(0,-10vh,0) rotate(0deg)', opacity: '0' },
+          '10%': { opacity: '0.9' },
+          '100%': { transform: 'translate3d(-35vw,105vh,0) rotate(540deg)', opacity: '0.7' },
+        },
+        drift: { from: { transform: 'translateX(-4%)' }, to: { transform: 'translateX(4%)' } },
+        ring: { '0%': { transform: 'scale(0.6)', opacity: '0.8' }, '100%': { transform: 'scale(2.4)', opacity: '0' } },
+        dash: { to: { strokeDashoffset: '-48' } },
+        sheet: { from: { transform: 'translateY(24px)', opacity: '0' }, to: { transform: 'translateY(0)', opacity: '1' } },
+        pop: { from: { transform: 'scale(.96)', opacity: '0' }, to: { transform: 'scale(1)', opacity: '1' } },
+        shimmer: { '100%': { transform: 'translateX(100%)' } },
+        bob: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-4px)' } },
+        twinkle: { '0%,100%': { opacity: '0.25' }, '50%': { opacity: '1' } },
+      },
+      animation: {
+        petal: 'petal 14s linear infinite',
+        drift: 'drift 40s ease-in-out infinite alternate',
+        ring: 'ring 2.2s ease-out infinite',
+        dash: 'dash 1.1s linear infinite',
+        sheet: 'sheet .28s ease-out',
+        pop: 'pop .2s ease-out',
+        shimmer: 'shimmer 1.6s infinite',
+        bob: 'bob 3.2s ease-in-out infinite',
+        twinkle: 'twinkle 3s ease-in-out infinite',
+      },
+    },
+  },
+  plugins: [],
+};
