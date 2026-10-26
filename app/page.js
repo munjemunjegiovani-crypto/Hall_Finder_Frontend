@@ -6,6 +6,7 @@ import Logo from '@/components/Logo';
 import ThemeToggle from '@/components/ThemeToggle';
 import DemoButton from '@/components/DemoButton';
 import HeroScene from '@/components/art/HeroScene';
+import Photo from '@/components/Photo';
 import Petals from '@/components/art/Petals';
 import MiniMap from '@/components/art/MiniMap';
 import { ClassroomScene, LibraryScene, LabScene, PlazaScene } from '@/components/art/Scenes';
@@ -71,7 +72,11 @@ function Hero() {
           <p className="mt-4 hidden text-sm text-ink/70 md:block">No sign-up needed. The demo opens on a simulated Monday morning.</p>
         </div>
       </div>
-      <HeroScene className="relative -mt-2 h-[400px] w-full md:absolute md:inset-0 md:mt-0 md:h-full" />
+      <div className="relative -mt-2 h-[400px] w-full md:absolute md:inset-0 md:mt-0 md:h-full">
+        <HeroScene className="h-full w-full" />
+        <Photo name="hero" alt="Students walking across the school campus" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[var(--sky-top)] via-transparent to-transparent md:bg-gradient-to-r md:from-[var(--sky-top)] md:via-[var(--sky-top)]/70 md:to-transparent" />
+      </div>
       <Petals />
     </section>
   );
@@ -166,10 +171,10 @@ function How() {
 
 function Campus() {
   const tiles = [
-    [ClassroomScene, 'Lecture halls', 'Tiered halls and seminar rooms with live availability.'],
-    [LibraryScene, 'Library and quiet floors', 'Find a silent desk and see when the library closes.'],
-    [LabScene, 'Labs and workshops', 'Computer, electronics and science labs, door by door.'],
-    [PlazaScene, 'The campus plaza', 'Directions work between buildings too, from the main gate to the last door.'],
+    [ClassroomScene, 'lecture', 'Lecture halls', 'Tiered halls and seminar rooms with live availability.'],
+    [LibraryScene, 'library', 'Library and quiet floors', 'Find a silent desk and see when the library closes.'],
+    [LabScene, 'lab', 'Labs and workshops', 'Computer, electronics and science labs, door by door.'],
+    [PlazaScene, 'plaza', 'The campus plaza', 'Directions work between buildings too, from the main gate to the last door.'],
   ];
   return (
     <section id="campus" className="page scroll-mt-20 py-24">
@@ -178,9 +183,9 @@ function Campus() {
         <p className="mt-3 text-lg text-muted">{SCHOOL_NAME} has three buildings, ten floors and over sixty rooms. HallFinder covers every one.</p>
       </div>
       <div className="mt-10 grid gap-5 sm:grid-cols-2">
-        {tiles.map(([Art, t, d]) => (
+        {tiles.map(([Art, ph, t, d]) => (
           <figure key={t} className="card overflow-hidden">
-            <Art className="aspect-[4/3] w-full" />
+            <div className="relative aspect-[4/3] w-full"><Art className="h-full w-full" /><Photo name={ph} alt={t} /></div>
             <figcaption className="p-5">
               <div className="text-lg font-bold">{t}</div>
               <div className="mt-1 text-[15px] text-muted">{d}</div>
