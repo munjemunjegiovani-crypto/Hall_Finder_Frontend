@@ -75,7 +75,7 @@ function Hero() {
       <div className="relative -mt-2 h-[400px] w-full md:absolute md:inset-0 md:mt-0 md:h-full">
         <HeroScene className="h-full w-full" />
         <Photo name="hero" alt="Students walking across the school campus" />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[var(--sky-top)] via-transparent to-transparent md:bg-gradient-to-r md:from-[var(--sky-top)] md:via-[var(--sky-top)]/70 md:to-transparent" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[var(--sky-top)] via-transparent to-transparent md:bg-gradient-to-r md:from-[var(--sky-top)] md:from-35% md:via-[var(--sky-top)]/85 md:to-transparent" />
       </div>
       <Petals />
     </section>
